@@ -39,14 +39,10 @@ MainWindow::MainWindow(QWidget *parent)
                 mainLayout->removeWidget(enterNameButton);
                 delete enterNameButton;
 
-                QScrollArea *scrollArea = new QScrollArea();
-
                 QJsonDocument doc = QJsonDocument::fromJson(answer.toUtf8());
 
                 Timeline *timeline = new Timeline(doc.array());
-                scrollArea->setWidget(timeline);
-                scrollArea->setWidgetResizable(true);
-                mainLayout->addWidget(scrollArea);
+                mainLayout->addWidget(timeline);
         }
     );
 
